@@ -58,10 +58,13 @@ jobs:
       - name: List repository files
         run: ls -al
 
-    # Step 7: Build docker image
-    # Go to dockerhub.com
+      # Step 7: Build docker image
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/backend_flask:latest .
+
     # Create a new repository - backend_flask
-    # Create a new access token - <access_token>
+    # Create a new access token -
     # Note down your username - <username>
     # Add the following secrets to your GitHub repository - Environment (name = TEST)
     # add the Environment name to the deploy job above (important step)
